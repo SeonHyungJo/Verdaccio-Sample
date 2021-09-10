@@ -2,6 +2,15 @@
 
 Private NPM Server Sample
 
+## Create User
+
+```cli
+htpasswd -c .htpasswd {user name}
+
+New password: ''
+Re-type new password: ''
+```
+
 ## Add User
 
 ```cli
