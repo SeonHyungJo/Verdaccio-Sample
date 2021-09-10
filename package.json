@@ -1,0 +1,15 @@
+{
+  "name": "verdaccio-sample",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "verdaccio --config ./config.yaml",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "verdaccio": "^5.1.4"
+  }
+}

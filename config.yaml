@@ -1,0 +1,43 @@
+storage: ./storage
+auth:
+  htpasswd:
+    file: ./.htpasswd
+    max_users: -1
+security:
+  api:
+    jwt:
+      sign:
+        expiresIn: 15d
+        notBefore: 0
+  web:
+    sign:
+      expiresIn: 7d
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+packages:
+  "@snyung/*":
+    access: $authenticated
+    publish: $authenticated
+  "**":
+    access: $all
+    publish: $authenticated
+    proxy: npmjs
+    
+logs: { type: file, path: ./log/verdaccio.log, format: pretty, level: info }
+web:
+  enable: true
+  title: snyung
+  logo: https://static.zaritalk.com/images/img-logo-28-28%403x.png
+  primary_color: "#2c7fff"
+  gravatar: true
+  scope: "@scope"
+  sort_packages: asc
+  darkMode: true
+  favicon: https://static.zaritalk.com/favicon.ico
+
+# notify:
+#   method: POST
+#   headers: [{ "Content-Type": "application/json" }]
+#   endpoint: https://usagge.hipchat.com/v2/room/3729485/notification?auth_token=mySecretToken
+#   content: '{"color":"green","message":"New package published: * {{ name }}*","notify":true,"message_format":"text"}'
